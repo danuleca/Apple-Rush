@@ -48,6 +48,25 @@ player_walking_left7 = pygame.image.load(r"Left\left_7.jpg")
 player_walking_left7 = pygame.transform.scale(player_walking_left7, (100,100))
 player_walking_left = [player_walking_left0,player_walking_left1,player_walking_left3,player_walking_left4,player_walking_left5,player_walking_left6,player_walking_left7]
 player_index = 0
+
+player_walking_right0 = pygame.image.load(r"Right\right_0.jpg")
+player_walking_right0= pygame.transform.scale(player_walking_right0, (100,100))
+player_walking_right1 = pygame.image.load(r"Right\right_1.jpg")
+player_walking_right1 = pygame.transform.scale(player_walking_right1, (100,100))
+player_walking_right2 = pygame.image.load(r"Right\right_2.jpg")
+player_walking_right2 = pygame.transform.scale(player_walking_right2, (100,100))
+player_walking_right3 = pygame.image.load(r"Right\right_3.jpg")
+player_walking_right3 = pygame.transform.scale(player_walking_right3, (100,100))
+player_walking_right4 = pygame.image.load(r"Right\right_4.jpg")
+player_walking_right4 = pygame.transform.scale(player_walking_right4, (100,100))
+player_walking_right5 = pygame.image.load(r"Right\right_5.jpg")
+player_walking_right5 = pygame.transform.scale(player_walking_right5, (100,100))
+player_walking_right6 = pygame.image.load(r"Right\right_6.jpg")
+player_walking_right6 = pygame.transform.scale(player_walking_right6, (100,100))
+player_walking_right7 = pygame.image.load(r"Right\right_7.jpg")
+player_walking_right7 = pygame.transform.scale(player_walking_right7, (100,100))
+player_walking_right = [player_walking_right0,player_walking_right1,player_walking_right3,player_walking_right4,player_walking_right5,player_walking_right6,player_walking_right7]
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -63,8 +82,9 @@ while True:
         player_index += 0.10
         player_rect.left -= vel
     if keys[pygame.K_RIGHT]:
-        player_img = pygame.image.load("Goblin_run_right.gif").convert_alpha()
-        player_img = pygame.transform.scale(player_img, (100,100))
+        if player_index >= len(player_walking_right): player_index = 0
+        player_img = player_walking_right[int(player_index)]
+        player_index += 0.10
         player_rect.right += vel
     
 
